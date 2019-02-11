@@ -44,8 +44,6 @@ class GroupIterator {
 		this.array = this.group.anArray;
 	}
 	next(){
-
-
 		let value = this.array[this.i];
 		this.i++;
 		let answer = (this.i <= this.array.length);
