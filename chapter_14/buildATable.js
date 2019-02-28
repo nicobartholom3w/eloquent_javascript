@@ -1,3 +1,5 @@
+  document.addEventListener("DOMContentLoaded", function(event){
+
   const MOUNTAINS = [
     {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
     {name: "Everest", height: 8848, place: "Nepal"},
@@ -11,15 +13,37 @@
   // Your code here
   // 
 
-  function createTitle(topic) {
-    let keys = Object.keys(MOUNTAINS);
-    for(let key of keys){
+  function createTable(topic) {
+    let keys = Object.keys(topic[0]);
+    let mountainsDiv = document.getElementById("mountains");
+    let table = document.createElement("table");
+    mountainsDiv.appendChild(table);
+    let row = document.createElement("tr");
+    let addRow = table.appendChild(row);
+
+    for(let thName of keys){
       let newTh = document.createElement("th");
-      let newContent = document.createTextNode(key);
+      let newContent = document.createTextNode(thName);
       let title = newTh.appendChild(newContent);
-      let mountainsDiv = document.getElementById("mountains");
-      mountainsDiv.appendChild(title);
+      row.appendChild(title);
     }
+    for(let obj of topic){
+      let newRow = table.insertRow(-1);
+      for(let column of keys){
+        let newTd = document.createElement("td");
+        let newInfo = document.createTextNode(obj[column]);
+        let item = newTd.appendChild(newInfo);
+        if(!isNaN(newInfo)){
+          newInfo.document.style.textAlign = "right";
+        }
+        newRow.appendChild(item);
+      }
+    }
+
   }
 
-createTitle(MOUNTAINS);
+
+
+  createTable(MOUNTAINS);
+
+});
