@@ -25,7 +25,7 @@
       let newTh = document.createElement("th");
       let newContent = document.createTextNode(thName);
       let title = newTh.appendChild(newContent);
-      row.appendChild(title);
+      row.appendChild(newTh);
     }
     for(let obj of topic){
       let newRow = table.insertRow(-1);
@@ -33,10 +33,12 @@
         let newTd = document.createElement("td");
         let newInfo = document.createTextNode(obj[column]);
         let item = newTd.appendChild(newInfo);
-        if(!isNaN(newInfo)){
-          newInfo.document.style.textAlign = "right";
+        if(!(isNaN(obj[column]))){
+          // newTd.classList.add("right-align");
+          // let rightAlign = document.getElementsByClassName("right-align")[0];
+          newTd.style.textAlign = "right";
         }
-        newRow.appendChild(item);
+        newRow.appendChild(newTd);
       }
     }
 
