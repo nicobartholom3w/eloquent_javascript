@@ -4,40 +4,32 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<!-- <script type="text/javascript" src="animatevillage.js"></script> -->
-	<script type="text/javascript" src="balloon.js"></script>
+	<script type="text/javascript" src="mouseTrail.js"></script>
 	<link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
-	<p>🎈</p>
+<style>
+  .trail { /* className for the trail elements */
+    position: absolute;
+    height: 6px; 
+    width: 6px;
+    border-radius: 3px;
+    background: teal;
+  }
+  body {
+    height: 300px;
+  }
+</style>
 
-	<script>	
-		window.addEventListener("keydown", event => {
-	 		let currentFontSize;
-	 		let newFontSize;
-	 		if(event.key == "ArrowUp") {
-	 			let body = document.querySelector("body");
-	 			let style = window.getComputedStyle(body, null).getPropertyValue('font-size');
-	 			currentFontSize = parseFloat(style);
- 				newFontSize = currentFontSize + currentFontSize * 0.10;
- 				if (newFontSize > 240){
- 					document.body.innerHTML = document.body.innerHTML.replace("🎈", "💥" );
- 				}
-	 			document.body.style.fontSize = newFontSize + "px";
-	 		}
- 		});
-		window.addEventListener("keydown", event => {
-			let currentFontSize;
-	 		let newFontSize;
-	 		if(event.key == "ArrowDown") {
-	 			let body = document.querySelector("body");
-	 			let style = window.getComputedStyle(body, null).getPropertyValue('font-size');
-	 			currentFontSize = parseFloat(style);
-				newFontSize = currentFontSize - currentFontSize * 0.10;
-	 			document.body.style.fontSize = newFontSize + "px";
-	 		}
-	 	});
- </script>
+
+
+
+
+
+	<!-- <p>🎈</p> -->
+
+
 
  <!-- 240px -->
 <!-- 	<h1>Mountains</h1>
